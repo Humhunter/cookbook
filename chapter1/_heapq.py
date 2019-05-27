@@ -30,7 +30,7 @@ def nlargest_and_nsmallest_dict():
     print('最贵的三个为{!r}'.format(expensive))
 
 
-def listToheap():
+def list_to_heap():
     # list to heap
     '''
      把列表转为堆，堆数据结构最重要的特征是 heap[0] 永远是最小的元素。并且剩余的元素可以很
@@ -60,6 +60,9 @@ class PriorityQueue:
     def pop(self):
         return heapq.heappop(self._queue)[-1]
 
+    def printheap(self):
+        print(self._queue)
+
 
 #
 class Item:
@@ -74,7 +77,7 @@ class Item:
 if __name__ == '__main__':
     nlargest_and_nsmallest()
     nlargest_and_nsmallest_dict()
-    listToheap()
+    list_to_heap()
 
     # 优先级队列
     q = PriorityQueue()
@@ -82,5 +85,6 @@ if __name__ == '__main__':
     q.push(Item('qidian'), 30)
     q.push(Item('yuanma'), 26)
     q.push(Item('qiaomai'), 35)
+    q.printheap()
     print(q.pop())
     print(q.pop())
