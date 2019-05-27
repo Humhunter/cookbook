@@ -42,5 +42,15 @@ def deque_pop():
 
 
 if __name__ == '__main__':
-    get_last_num_element(3)
-    deque_pop()
+    # get_last_num_element(3)
+    # deque_pop()
+    # with open('somefile.txt', 'r') as f:
+    #     for line, prevlines in search(f, 'no', 5):
+    #         for pline in prevlines:
+    #             print(pline, end='')
+    #         print(line, end='')
+    #         print('-' * 30)
+
+    projectLocalCommand = '#!/bin/bash\nmvn clean package -Dmaven.test.skip\nif [ -d "{project_name}" ];then find {project_name}/target/ -maxdepth 1 -type f -name "{project_name}-[0-9]\.[0-9]\.[0-9]\.jar" -exec cp {{}} /var/lib/opsmanage/workspaces/release/{project_name}/{project_name} \;;else find target/ -maxdepth 1 -type f -name "{project_name}-[0-9]\.[0-9]\.[0-9]\.jar" -exec cp {{}} /var/lib/opsmanage/workspaces/release/{project_name}/{project_name} \;;fi'.format(project_name="biz-log")
+    # projectLocalCommand = r'#!/bin/bash\nmvn clean package -Dmaven.test.skip\nfind target/ -maxdepth 1 -type f -name "{project_name}-[0-9]\.[0-9]\.[0-9]\.jar" -exec cp {} /var/lib/opsmanage/workspaces/release/{project_name}/{project_name} \;;fi'.format("", project_name="biz-log")
+    print(projectLocalCommand)
