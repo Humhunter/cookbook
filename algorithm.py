@@ -26,9 +26,6 @@ def insert_sort(aList):
             j -= 1
     return aList
 
-aList = [28, 32, 14, 12, 53, 42]
-print(insert_sort(aList))
-
 
 # 冒泡排序
 def bubble_sort(aList):
@@ -47,9 +44,45 @@ def bubble_sort(aList):
                 aList[j], aList[j + 1] = aList[j + 1], aList[j]
 
 
-aList = [28, 32, 14, 12, 53, 42]
+data_list = [28, 32, 14, 12, 53, 42]
+
 
 # 快速排序
-def quick_sort(aList, start, end):
+def quick_sort(data_list, start, end):
+    '''
+    1、从数列中挑出一个元素，称为 “基准”
+    2、重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面
+    3、对所有两个小数列重复第二步，直至各区间只有一个数
+    :param data_list:
+    :param start:
+    :param end:
+    :return:
+    '''
     if start >= end:
         return
+    low_index = start
+    high_index = end
+    basic_data = data_list[start]
+    while low_index < high_index:
+        while low_index < high_index and data_list[high_index] > basic_data:
+            high_index -= 1
+        if low_index != high_index:
+            data_list[low_index] = data_list[high_index]
+            low_index += 1
+        while low_index < high_index and data_list[low_index] < basic_data:
+            low_index += 1
+        if low_index != high_index:
+            data_list[high_index] = data_list[low_index]
+            high_index -= 1
+    data_list[low_index] = basic_data
+    # 递归
+    quick_sort(data_list, start, low_index - 1)
+    quick_sort(data_list, high_index + 1, end)
+
+
+if __name__ == '__main__':
+    aList = [28, 32, 14, 12, 53, 42]
+    print(insert_sort(aList))
+    data_list = [28, 32, 14, 12, 53, 42]
+    quick_sort(data_list, 0, len(data_list) - 1 )
+    print(data_list)
