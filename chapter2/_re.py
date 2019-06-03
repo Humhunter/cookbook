@@ -38,8 +38,58 @@ def re_sub():
     print(newtext, n)
 
 
+def match_case(word):
+    def replace(m):
+        text = m.group()
+        if text.isupper():
+            return word.upper()
+        elif text.islower():
+            return word.lower()
+        elif text[0].isupper():
+            return word.capitalize()
+        else:
+            return word
+
+    return replace
+
+
+def re_flag():
+    text = 'UPPER PYTHON, lower python, Mixed Python'
+    print(re.findall('python', text, flags=re.IGNORECASE))
+    print(re.sub('python', 'snake', text, flags=re.IGNORECASE))
+    print(re.sub('python', match_case('snake'), text, flags=re.IGNORECASE))
+
+
+def re_greed():
+    str_pattern = re.compile(r'"(.*)"')
+    text1 = 'Computer says "no."'
+    print(str_pattern.findall(text1))
+    text2 = 'Computer says "no." Phone says "yes."'
+    print(str_pattern.findall(text2))  # 默认是贪婪模式，尽可能多的匹配
+    str_pat = re.compile(r'"(.*?)"')
+    print(str_pat.findall(text2))
+
+
+def re_multiline():
+    comment = re.compile(r'/\*(.*?)\*/')
+    text1 = '/* this is a comment */'
+    text2 = '''
+        /* this is a
+         multiline comment */
+    '''
+    print(comment.findall(text1))
+    print(comment.findall(text2))
+    comment1 = re.compile(r'/\*((?:.|\n)*?)\*/')
+    print(comment1.findall(text2))
+    comment2 = re.compile(r'/\*(.*?)\*/', re.DOTALL)
+    print(comment2.findall(text2))
+
+
 if __name__ == '__main__':
     re_split()
     re_compile()
     re_findall()
     re_sub()
+    re_flag()
+    re_greed()
+    re_multiline()
