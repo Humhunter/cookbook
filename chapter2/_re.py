@@ -4,7 +4,7 @@
 
 
 import re
-
+from collections import namedtuple
 
 def re_split():
     line = 'asdf fjdk; afed, fjek,asdf, foo'
@@ -85,6 +85,22 @@ def re_multiline():
     print(comment2.findall(text2))
 
 
+def re_token():
+    NAME = r'(?P<NAME>[a-zA-Z_][a-zA-Z_0-9]*)'
+    NUM = r'(?P<NUM>\d+)'
+    PLUS = r'(?P<PLUS>\+)'
+    TIMES = r'(?P<TIMES>\*)'
+    EQ = r'(?P<EQ>=)'
+    WS = r'(?P<WS>\s+)'
+    master_pat = re.compile('|'.join([NAME, NUM, PLUS, TIMES, EQ, WS]))
+    scanner = master_pat.scanner('foo=42')
+    print(scanner.match())
+    print(scanner.match().lastgroup, scanner.match().group())
+
+def generate_token():
+    Token = namedtuple('Token', ['type', 'value'])
+
+
 if __name__ == '__main__':
     re_split()
     re_compile()
@@ -93,3 +109,5 @@ if __name__ == '__main__':
     re_flag()
     re_greed()
     re_multiline()
+    re_token()
+    generate_token()
