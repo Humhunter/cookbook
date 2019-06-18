@@ -20,8 +20,9 @@ def list_algorithm():
 
 
 def numpy_algorithm():
-    ax = np.array([1,2,3,4])
-    bx = np.array([5,6,7,8])
+    ax = np.array([1, 2, 3, 4])
+    bx = np.array([5, 6, 7, 8])
+
 
 if __name__ == '__main__':
     list_algorithm()
