@@ -6,6 +6,7 @@
 import re
 from collections import namedtuple
 
+
 def re_split():
     line = 'asdf fjdk; afed, fjek,asdf, foo'
     result = re.split(r'[;,\s]\s*', line)
@@ -96,6 +97,7 @@ def re_token():
     scanner = master_pat.scanner('foo=42')
     print(scanner.match())
     print(scanner.match().lastgroup, scanner.match().group())
+
 
 def generate_token():
     Token = namedtuple('Token', ['type', 'value'])
