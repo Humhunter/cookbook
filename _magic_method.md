@@ -792,6 +792,18 @@ class Student:
     def __init__(self, name, age):
         self.name = name
         self.age = age
+
+    def get_simple_display(self):
+        return f'{self.name}({self.age})'
+
+    def get_long_dispaly(self):
+        return f'{self.name} is {self.age} years old.'
+
+
+if __name__ == '__main__':
+    qidian = Student('qidian', '18')
+    print(qidian.get_simple_display())
+    print(qidian.get_long_dispaly())
     
 ```
 
