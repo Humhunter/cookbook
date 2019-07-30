@@ -57,6 +57,6 @@ if __name__ == '__main__':
     log = logging.getLogger('test')
 
     p = Pool()
-    p.apply_async(add, (3,4), callback=partial(output_result, log=log))
+    p.apply_async(add, (3, 4), callback=partial(output_result, log=log))
     p.close()
     p.join()
