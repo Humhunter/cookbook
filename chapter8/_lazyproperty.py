@@ -84,3 +84,5 @@ if __name__ == '__main__':
     c.perimeter
     print(vars(c))
     c = CircleMethod(5)
+    print(c.area)
+    c.area = 200
