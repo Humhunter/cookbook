@@ -44,8 +44,6 @@ class Structure2:
             setattr(self, name, value)
 
 
-
-
 if __name__ == '__main__':
     s = Stock('Ace', 50, 91.1)
     p = Point(3, 4)
