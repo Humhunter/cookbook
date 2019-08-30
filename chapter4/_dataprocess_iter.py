@@ -36,7 +36,7 @@ def gen_opener(filenames):
         elif filename.endswith('.bz2'):
             f = bz2.open(filename, 'rt')
         else:
-            open(filename, 'rt')
+            f = open(filename, 'rt')
         yield f
         f.close()
 
