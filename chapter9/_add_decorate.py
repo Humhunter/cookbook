@@ -6,6 +6,7 @@
 
 import time
 from functools import wraps
+from inspect import signature
 
 
 def timethis(func):
@@ -28,9 +29,12 @@ def timethis(func):
 
 @timethis
 def countdown(n):
+    print('Begin count')
     while n > 0:
         n -= 1
 
 
 if __name__ == '__main__':
     countdown(100000000)
+    print(countdown.__wrapped__(100000))
+    print(signature(countdown))

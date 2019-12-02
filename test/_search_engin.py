@@ -100,8 +100,12 @@ class BOWInvertIndexEngine(SearchEnginBase):
         query_words = list(self)
 
     @staticmethod
-    def parse_text_to_words():
-        pass
+    def parse_text_to_words(text):
+        text = re.sub(r'[^\w ]', ' ', text)
+        text = text.islower()
+        word_list = text.split(' ')
+        word_list = filter(None, word_list)
+        return set(word_list)
 
 
 if __name__ == '__main__':
