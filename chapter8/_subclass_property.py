@@ -52,6 +52,7 @@ class SubPerson2(Person):
     def name(self):
         print("")
 
+
 if __name__ == '__main__':
     s = SubPerson('Jinsong')
     print(s.name)

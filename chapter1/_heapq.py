@@ -6,10 +6,25 @@
 
 import heapq
 import numpy as np
+import random
+
+
+def get_random_list(start, stop, length):
+    if length >= 0:
+        length = int(length)
+    try:
+        start, stop = (int(start), int(stop)) if start < stop else (int(stop), int(start))
+    except Exception as e:
+        print(e)
+    else:
+        random_list = []
+    for i in range(length):
+        random_list.append(random.randint(start, stop))
+    return random_list
 
 
 def nlargest_and_nsmallest():
-    nums = list([np.random.randint(20, size=10)])
+    nums = get_random_list(1, 20, 5.4)
     print(heapq.nlargest(3, nums))
     print(heapq.nsmallest(3, nums))
 
