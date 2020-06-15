@@ -15,6 +15,7 @@ def slice_pre():
     print(int(record[shares]) * float(record[price]))
 
 
+
 def slice_indices():
     '''
     你还能通过调用切片的 indices(size) 方法将它映射到一个确定大小的序

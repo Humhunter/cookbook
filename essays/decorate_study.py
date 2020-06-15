@@ -3,7 +3,7 @@
 # author: JinSong.xiao(61627515@qq.com)
 # time: 2019/12/9 20:45
 
-
+import time
 from functools import wraps
 
 
@@ -95,6 +95,18 @@ def main():
     func_example('hello world')
     send_message = func_closure()
     send_message('hello world')
+
+
+def log_execution_time(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        res = func(*args, **kwargs)
+        end = time.perf_counter()
+        print('{} took {} ms'.format(func.__name__, (end - start) * 1000))
+        return res
+
+    return wrapper
 
 
 if __name__ == '__main__':

@@ -61,6 +61,10 @@ def list_to_heap():
     print(nums)
     heapq.heappop(nums)
     print(nums)
+    heapq.heappop(nums)
+    print(nums)
+    heapq.heappop(nums)
+    print(nums)
 
 
 class PriorityQueue:
